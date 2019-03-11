@@ -1,0 +1,102 @@
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Duka Langu</title>
+    <link rel="stylesheet" href="{% static 'wood_furnature/bootstrap.css' %}"/>
+</head>
+
+<body>
+<section>
+
+
+</section>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary container">
+    <a class="navbar-brand" href="#">Duka Langu</a>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" href="#">Products</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">product 1</a>
+                    <a class="dropdown-item" href="#">product 2</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">product 3</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Contact us</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<section>
+    <div class="container">
+        <div>
+            <div>
+                <form method="POST">
+                    {% csrf_token %}
+                    <div>
+                        <div class="input-group my-3 ">
+                            <input class="input form-control py-2 border px-10" aria-describedby="search by name"
+                                   type="text" placeholder="search for any item">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-primary">
+                                    search
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="jumbotron">
+                            <h1 class="display-4" text-sm-center>simple.Elegant.Sweet</h1>
+                            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut dolores ea eos
+                                laboriosam nam nemo porro quod rem repellat veniam. Corporis, et minima. At culpa,
+                                dignissimos esse nostrum pariatur voluptatem.</p>
+                            <p class="lead">
+                                <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+                            </p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="container">
+    <div class="row ">
+
+        {% for furnature in wood_list %}
+        <div class="col-lg-3  col-sm-12 col-md-4 breadcrumb list-group-item-action shadow card">
+            <div class="card-body text-center p-0 ">
+                <img src="{{furnature.image.url}}" width="150" height="100" alt="Image">
+                <h5 class="card-title">{{furnature.name}}</h5>
+                <p class="card-text">Ksh : {{ furnature.price }}</p>
+
+
+                <a type="button" class="btn btn-link card-link" href="wood/detail/{{furnature.id}}">More</a>
+            </div>
+        </div>
+
+        {% endfor %}
+
+    </div>
+</div>
+
+
+<footer>
+
+</footer>
+</body>
+
+
+</html>

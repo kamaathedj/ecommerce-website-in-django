@@ -1,0 +1,62 @@
+{% load static %}
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Duka Langu</title>
+    <link rel="stylesheet" href="{% static 'wood_furnature/bootstrap.css' %}"/>
+
+    <title>Duka Langu </title>
+</head>
+<div class="container">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary container">
+        <a class="navbar-brand" href="#">Duka Langu</a>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" href="#">Products</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">product 1</a>
+                        <a class="dropdown-item" href="#">product 2</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">product 3</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact us</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+<div class="breadcrumb mt-2 card container shadow pb-5">
+    <body>
+
+    <div class="row">
+        <div class="col-sm-12 col-md-8 col-lg-6 ">
+            <img src="{{wood.furnature_image.url}}" width="500" height="300" alt="Image">
+        </div>
+        <div class=" col-sm-12 col-md-4 col-lg-6 text-sm-center text-md-left">
+            <h4>{{wood.name}}</h4>
+             <p class="lead"> {{ wood.description }}</p>
+            <p class="card-text">Ksh : {{ wood.price }}</p>
+               <p class="lead">Updated at : {{wood.updated}}</p>
+            <button class="btn btn-outline-primary">
+                Checkout
+            </button>
+        </div>
+    </div>
+
+    </body>
+</div>
+
+</div>
+</html>
