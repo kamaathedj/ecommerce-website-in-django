@@ -8,5 +8,5 @@ from django.urls import re_path
 urlpatterns = [
     path('',views.index,name='index'),
     path('wood/detail/<id>',views.details),
-    path('wood/detail/payments/',views.amPaying)
+    path('payments/<id>',views.amPaying),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,8 +1,10 @@
 from django.shortcuts import render
 from .models import wood_metal
+import secrets
 
 
 # Create your views here.
+
 def index(request):
     
     wood = wood_metal.objects.order_by('-updated')
@@ -28,9 +30,23 @@ def details(request, id):
     context = {
         'wood': wood
     }
+     
     return render(request, 'wood/detail.html',context)
 
-def amPaying(request):
-    return render(request,'wood/payments.html')
+def amPaying(request,id):
+    if request.method=='POST':
+        k=secrets.token_hex(16)
+        print(k)
+    wood = wood_metal.objects.get(id=id)
+    context = {
+        'wood': wood
+    }
+
+    return render(request,'wood/payments.html',context)
+
+def postToServer(request):
+    if request.method=='POST':
+        print("posted")
+    
 
 

@@ -5,9 +5,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'wood_furnature/bootstrap.css' %}"/>
     <title>payment</title>
 </head>
 <body>
+
+    <div class="breadcrumb mt-2 card container shadow pb-5">
+        
+       
+            <div class="text-lg-center ">
+                <h4>{{wood.name}}</h4>
+                <p class="card-text">Ksh : {{ wood.price }}</p>
+                   <p class="lead">User : kamaa</p>
+                   <p class="lead">Location : kiambu</p>
+            <form action="" method="post">
+                    {% csrf_token %}
+                <button type="submit" class="btn btn-outline-primary">
+                    mpesa
+                </button>
+                <button type="submit" class="btn btn-outline-secondary ml-5">
+                    Other means
+                </button>
+            </form>
+            </div>
+        </div>
+    
+    </div>
+
+</div>
     
 </body>
 </html>
