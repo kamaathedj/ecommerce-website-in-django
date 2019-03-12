@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from .models import wood_metal
 import secrets
+import json
+from wood_furnature.mpesa.pay import mpesaTransact
 
 
 # Create your views here.
@@ -34,19 +36,19 @@ def details(request, id):
     return render(request, 'wood/detail.html',context)
 
 def amPaying(request,id):
+    wood = wood_metal.objects.get(id=id)
     if request.method=='POST':
         k=secrets.token_hex(16)
-        print(k)
-    wood = wood_metal.objects.get(id=id)
+        m=json.loads(mpesaTransact(wood.price,0727937153,""))
+        print(m)
+    
     context = {
         'wood': wood
     }
 
     return render(request,'wood/payments.html',context)
 
-def postToServer(request):
-    if request.method=='POST':
-        print("posted")
+
     
 
 
