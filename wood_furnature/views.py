@@ -4,6 +4,7 @@ from .models import wood_metal
 
 # Create your views here.
 def index(request):
+    
     wood = wood_metal.objects.order_by('-updated')
     wood_list = []
     for woods in wood:
@@ -15,6 +16,7 @@ def index(request):
             'id': woods.id
         }
         wood_list.append(furnature)
+       
 
     context = {'wood_list': wood_list}
 
@@ -26,5 +28,9 @@ def details(request, id):
     context = {
         'wood': wood
     }
-    print(wood.id)
     return render(request, 'wood/detail.html',context)
+
+def amPaying(request):
+    return render(request,'wood/payments.html')
+
+
